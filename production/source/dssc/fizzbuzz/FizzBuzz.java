@@ -15,6 +15,7 @@ public class FizzBuzz {
         HashMap<Integer, String> codes = new HashMap<>();
         codes.put(3, "Fizz");
         codes.put(5, "Buzz");
+        codes.put(7, "Bang");
         for (Integer divisor : codes.keySet()) {
             if (num % divisor == 0) {
                 ans += codes.get(divisor);
