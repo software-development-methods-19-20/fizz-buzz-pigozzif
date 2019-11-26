@@ -5,17 +5,13 @@ import java.util.stream.IntStream;
 
 public class FizzBuzz {
 
-    public void printNumbers() {
+    public void printNumbers(HashMap<Integer, String> codes) {
         IntStream seq = IntStream.rangeClosed(1, 100);
-        seq.mapToObj(FizzBuzz::numToString).forEach(System.out::println);
+        seq.mapToObj(x -> numToString(x, codes)).forEach(System.out::println);
     }
 
-    public static String numToString(int num) {
+    public static String numToString(int num, HashMap<Integer, String> codes) {
         String ans = "";
-        HashMap<Integer, String> codes = new HashMap<>();
-        codes.put(3, "Fizz");
-        codes.put(5, "Buzz");
-        codes.put(7, "Bang");
         for (Integer divisor : codes.keySet()) {
             if (num % divisor == 0) {
                 ans += codes.get(divisor);
